@@ -1,0 +1,47 @@
+.score-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    height: 100vh;
+  }
+  
+  .player {
+    text-align: center;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  button {
+    font-size: 100px;
+    padding: 200px;
+    margin-top: 10px;
+    position: relative;
+  }
+  
+  button::before {
+    content: "";
+    display: none;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+  }
+  
+  button.serving::before {
+    display: block;
+  }
+  
+  span {
+    font-size: 36px;                                                                      
+    font-weight: bold;
+  }
+  
+  .serving-indicator {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  

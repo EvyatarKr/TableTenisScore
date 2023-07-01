@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h2>ניקוד טניס שולחן</h2>
+  <div class="score-container">
+    <div class="player">
+      <h3>Player 1</h3>
+      <button onclick="increaseScore('player1')" id="player1-button"><span id="player1-score">0</span></button>
+    </div>
+    <div class="player">
+      <h3>Player 2</h3>
+      <button onclick="increaseScore('player2')" id="player2-button"><span id="player2-score">0</span></button>
+    </div>
+  </div>
+  <div id="serving-indicator"></div>
+
+  <div class="match-results">
+    <h3>Match Results</h3>
+    <div>
+      <span>נצחונות של שחקן 1   -</span><span id="player1-wins">0</span>
+    </div>
+    <div>
+      <span>נצחונות של שחקן 2   -</span><span id="player2-wins">0</span>
+    </div>
+    <button onclick="resetMatch()">Reset Match</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
