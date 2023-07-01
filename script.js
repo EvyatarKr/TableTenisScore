@@ -21,15 +21,23 @@ function increaseScore(player) {
   var sum =p1Score+p2Score;
   var sum2 = Math.floor(sum/2);
 
-  if (sum2==1 | sum2==3 | sum2==5){
+  if (sum2==1 || sum2==3 || sum2==5 || sum/2==7 || sum/2==9)
     toggleServingPlayer('player2')
-  }
   else {
     toggleServingPlayer('player1')
   }
  
+if (sum >=20)
+{
+  if(sum % 2 ===0){
+    toggleServingPlayer('player2')
+  }else {
+    toggleServingPlayer('player1')
+  }
+}
+
   // Check if a player has reached the maximum score
-  if (updatedScore === maxScore) {
+  if (updatedScore === maxScore && sum <20) {
     if (player === "player1") {
       player1Wins++;
       document.getElementById("player1-wins").innerHTML = player1Wins;
@@ -37,21 +45,27 @@ function increaseScore(player) {
       player2Wins++;
       document.getElementById("player2-wins").innerHTML = player2Wins;
     }
-    alert("Player " + player.slice(-1) + " wins the match!");
-    resetScores();
+
   }
 
-  // Check serving rules when the score is 10-10
-  if (currentScore === 10 && updatedScore === 10) {
-    player1Serves = 1;
-    player2Serves = 1;
-  } else {
-    if (player === "player1") {
-      player1Serves--;
-    } else {
-      player2Serves--;
+  if(sum >= 20) {
+    if(p2Score >= p1Score + 2) {
+      
+      player2Wins++;
+      document.getElementById("player2-wins").innerHTML = player2Wins;
+      alert("Player " + player.slice(-1) + " wins the match!");
+      resetScores();
     }
+    if(p1Score >= p2Score + 2) {
+      player1Wins++;
+      document.getElementById("player1-wins").innerHTML = player1Wins;
+      alert("Player " + player.slice(-1) + " wins the match!");
+      resetScores();
+    }
+
+
   }
+
 }
 
 // Function to reset the scores to zero
